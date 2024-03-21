@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // testing api
-app.get('/api', (req, res) => {
+app.get('/', (req, res) => {
   res.status(200).send({ message: 'Welcome from api'});
 });
 
