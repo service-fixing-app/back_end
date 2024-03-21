@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // testing api
-app.get('/welcome', (req, res) => {
+app.get('/api', (req, res) => {
   res.status(200).send({ message: 'Welcome from api'});
 });
 
@@ -37,7 +37,7 @@ app.use('/api', testupload)
 
 //static Images Folder
 
-app.use('/Images', express.static('./Images'))
+app.use('/api/Images', express.static('./Images'))
 
 
 //port
