@@ -15,22 +15,26 @@ const Towingtruck = db.towingtruck
 // 1. create repairshop
 const addTowingtruck = async (req, res) => {
     try {
-      const {profile_image, document_verify} = req.files;
-      const { towingtruck_name, management_name, tel, password, type_service, village, district, province} = req.body;
+      // const {profile_image, document_verify} = req.files;
+      const { towingTruck_name, shopOwner_name, tel, password, age, gender, village, district, province, type_service, profile_image, document_verify } = req.body;
   
       // Hash the password
       const hashPassword = await bcrypt.hash(password, 8);
       const data = {
-        towingtruck_name,
-        management_name,
+        towingTruck_name,
+        shopOwner_name,
         tel,
         password : hashPassword,
-        type_service,
+        age,
+        gender,
         village,
         district,
         province,
-        profile_image: profile_image[0].filename, 
-        document_verify: document_verify[0].filename
+        type_service,
+        profile_image,
+        document_verify
+        // profile_image: profile_image[0].filename, 
+        // document_verify: document_verify[0].filename
 
       };
       // check user
@@ -155,29 +159,29 @@ const deleteTowingtruck = async (req, res) => {
 
 // 8. Upload Image Controller
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'Images')
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname))
-    }
-})
+// const storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, 'Images')
+//     },
+//     filename: (req, file, cb) => {
+//         cb(null, Date.now() + path.extname(file.originalname))
+//     }
+// })
 
-const upload = multer({
-    storage: storage,
-    limits: { fileSize: '1000000' },
-    fileFilter: (req, file, cb) => {
-        const fileTypes = /jpeg|jpg|png|gif/
-        const mimeType = fileTypes.test(file.mimetype)  
-        const extname = fileTypes.test(path.extname(file.originalname))
+// const upload = multer({
+//     storage: storage,
+//     limits: { fileSize: '1000000' },
+//     fileFilter: (req, file, cb) => {
+//         const fileTypes = /jpeg|jpg|png|gif/
+//         const mimeType = fileTypes.test(file.mimetype)  
+//         const extname = fileTypes.test(path.extname(file.originalname))
 
-        if(mimeType && extname) {
-            return cb(null, true)
-        }
-        cb('Give proper files formate to upload')
-    }
-}).fields([{ name: 'profile_image', maxCount: 1 }, { name: 'document_verify', maxCount: 1 }])
+//         if(mimeType && extname) {
+//             return cb(null, true)
+//         }
+//         cb('Give proper files formate to upload')
+//     }
+// }).fields([{ name: 'profile_image', maxCount: 1 }, { name: 'document_verify', maxCount: 1 }])
 
 
 
@@ -189,7 +193,7 @@ module.exports = {
     getOneTowingtruck,
     updateTowingtruck,
     deleteTowingtruck,
-    upload,
+    // upload,
     login
     
 }

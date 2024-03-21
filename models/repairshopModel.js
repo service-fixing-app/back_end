@@ -18,10 +18,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: true
         },
-        type_service: {
-            type: DataTypes.INTEGER,
-            allowNull: true
-        },
         village: {
             type: DataTypes.STRING,
             allowNull: true
@@ -31,6 +27,10 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true
         },
         province: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        type_service: {
             type: DataTypes.STRING,
             allowNull: true
         },

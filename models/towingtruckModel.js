@@ -2,48 +2,57 @@ module.exports = (sequelize, DataTypes) => {
 
     const Towingtruck = sequelize.define("towingtruck", { 
         
-        towingtruck_name: {
+        towingTruck_name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
-        management_name: {
+        shopOwner_name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         tel: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: true
         },
         password: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
-        type_service: {
-            type: DataTypes.INTEGER,
-            allowNull: false
+        age: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        gender: {
+            type: DataTypes.STRING,
+            allowNull: true
         },
         village: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         district: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         province: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
+        },
+        type_service: {
+            type: DataTypes.STRING,
+            allowNull: true
         },
         profile_image: {
             type: DataTypes.STRING,
-            // allowNull: false
+            allowNull: true
         },
         document_verify: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
     
     }, {
-        tableName: 'towingtruck' 
+        tableName: 'towingshop' 
     });
 
     return Towingtruck;
