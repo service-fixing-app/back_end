@@ -31,6 +31,10 @@ app.use('/api/repairshop', repairshoprouter)
 const towingtruckrouter = require('./routes/towingtruckRouter.js')
 app.use('/api/towingtruck', towingtruckrouter)
 
+// towingtruck
+const loginRouter = require('./routes/loginRouter.js')
+app.use('/api/login', loginRouter)
+
 // testupload routing
 const testupload = require('./routes/testroute.js')
 app.use('/api', testupload)

@@ -16,23 +16,25 @@ const Repairshop = db.repairshops
 const addRepairshop = async (req, res) => {
     try {
       // const {profile_image, document_verify} = req.files;
-      const { shop_name, management_name, tel, password, type_service, village, district, province, profile_image, document_verify} = req.body;
+      const { shop_name, manager_name, tel, password, age, gender, birthdate, village, district, province, type_service, profile_image, document_verify, role} = req.body;
   
       // Hash the password
       const hashPassword = await bcrypt.hash(password, 8);
       const data = {
         shop_name,
-        management_name,
+        manager_name,
         tel,
         password : hashPassword,
-        type_service,
+        age,
+        gender,
+        birthdate,
         village,
         district,
         province,
+        type_service,
         profile_image,
-        document_verify
-        // profile_image: profile_image[0].filename, 
-        // document_verify: document_verify[0].filename
+        document_verify,
+        role,
 
       };
       // check user

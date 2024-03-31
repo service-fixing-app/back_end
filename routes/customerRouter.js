@@ -8,6 +8,7 @@ const router = require('express').Router()
 // router.post('/addCustomer', customerController.upload , customerController.addCustomer);
 router.post('/addCustomer', customerController.addCustomer);
 router.post('/login', customerController.login);
+router.post('/logout', customerController.logout);
 router.get('/allCustomers', customerController.getAllCustomers);
 router.get('/getOneCustomer/:id', customerController.getOneCustomer);
 router.put('/updateCustomer/:id', customerController.updateCustomer);

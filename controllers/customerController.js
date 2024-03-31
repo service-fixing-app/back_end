@@ -20,7 +20,7 @@ const addCustomer = async (req, res) => {
       //   return res.status(400).json({ message: 'No file uploaded' });
       // }
       // const imagePath = req.file.path;
-      const { first_name, last_name, tel, password, age, gender, birthdate, village, district, province, profile_image} = req.body;
+      const { first_name, last_name, tel, password, age, gender, birthdate, village, district, province, profile_image, role} = req.body;
   
       // Hash the password
       const hashPassword = await bcrypt.hash(password, 8);
@@ -35,7 +35,8 @@ const addCustomer = async (req, res) => {
         village,
         district,
         province,
-        profile_image
+        profile_image,
+        role
         // profile_image : imagePath
       };
       // check user
@@ -113,6 +114,26 @@ const login = async (req, res) => {
     });
   }
 };
+// logout 
+const logout = async (req, res) => {
+  try {
+    // Clear the JWT token cookie
+    res.clearCookie("jwt");
+
+    // Send success response
+    return res.status(200).json({ 
+      status: true,
+      message: 'Logged out successfully!' 
+    });
+  } catch (error) {
+    console.error('Error during logout:', error);
+    return res.status(500).json({
+      status: false,
+      message: "Internal server error."
+    });
+  }
+};
+
 
 // 2. get all user
 
@@ -216,6 +237,7 @@ module.exports = {
     deleteCustomer,
     // upload,
     login,
+    logout,
     getOneImage
     
 }

@@ -2,11 +2,11 @@ module.exports = (sequelize, DataTypes) => {
 
     const Towingtruck = sequelize.define("towingtruck", { 
         
-        towingTruck_name: {
+        shop_name: {
             type: DataTypes.STRING,
             allowNull: true
         },
-        shopOwner_name: {
+        manager_name: {
             type: DataTypes.STRING,
             allowNull: true
         },
@@ -19,12 +19,16 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true
         },
         age: {
-            type: DataTypes.STRING,
-            allowNull: true
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         gender: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: false
+        },
+        birthdate: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
         village: {
             type: DataTypes.STRING,
@@ -47,6 +51,10 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true
         },
         document_verify: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        role: {
             type: DataTypes.STRING,
             allowNull: true
         },

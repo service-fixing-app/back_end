@@ -2,11 +2,6 @@ const db = require('../models')
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
 
-// image Upload
-const multer = require('multer');
-const path = require('path')
-
-
 // create main Model
 const Towingtruck = db.towingtruck
 
@@ -16,25 +11,25 @@ const Towingtruck = db.towingtruck
 const addTowingtruck = async (req, res) => {
     try {
       // const {profile_image, document_verify} = req.files;
-      const { towingTruck_name, shopOwner_name, tel, password, age, gender, village, district, province, type_service, profile_image, document_verify } = req.body;
+      const { shop_name, manager_name, tel, password, age, gender, birthdate, village, district, province, type_service, profile_image, document_verify, role} = req.body;
   
       // Hash the password
       const hashPassword = await bcrypt.hash(password, 8);
       const data = {
-        towingTruck_name,
-        shopOwner_name,
+        shop_name,
+        manager_name,
         tel,
         password : hashPassword,
         age,
         gender,
+        birthdate,
         village,
         district,
         province,
         type_service,
         profile_image,
-        document_verify
-        // profile_image: profile_image[0].filename, 
-        // document_verify: document_verify[0].filename
+        document_verify,
+        role,
 
       };
       // check user

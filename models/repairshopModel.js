@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: true
         },
-        management_name: {
+        manager_name: {
             type: DataTypes.STRING,
             allowNull: true
         },
@@ -17,6 +17,18 @@ module.exports = (sequelize, DataTypes) => {
         password: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        age: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        gender: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        birthdate: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
         village: {
             type: DataTypes.STRING,
@@ -39,6 +51,10 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true
         },
         document_verify: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        role: {
             type: DataTypes.STRING,
             allowNull: true
         },
